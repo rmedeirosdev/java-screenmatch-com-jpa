@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Arquivos de configuração e segredos
+.env
+*.env
+openai.properties
+apikey.txt
