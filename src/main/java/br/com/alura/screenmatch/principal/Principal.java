@@ -1,10 +1,12 @@
 package br.com.alura.screenmatch.principal;
 
+import br.com.alura.screenmatch.Repository.SerieRepository;
 import br.com.alura.screenmatch.model.DadosSerie;
 import br.com.alura.screenmatch.model.DadosTemporada;
 import br.com.alura.screenmatch.model.Serie;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverteDados;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -20,6 +22,8 @@ public class Principal {
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
     private final String API_KEY = "&apikey=175bf8e6";
     private List <DadosSerie> seriesBuscadas = new ArrayList<>();
+
+
 
     public void exibeMenu() {
         int opcao = -1;
