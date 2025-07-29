@@ -3,6 +3,9 @@ package br.com.alura.screenmatch.service;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.net.URLEncoder;
+import java.util.Scanner;
+
 public class Traducao {
     private final ConsumoApi consumoApi;
     private final ConverteDados converteDados;
@@ -12,12 +15,6 @@ public class Traducao {
         this.converteDados = new ConverteDados();
     }
 
-    /**
-     * Método que consome a API de tradução e retorna o texto traduzido.
-     *
-     * @param texto Texto a ser traduzido
-     * @return Texto traduzido
-     */
     public String obterTraducao(String texto) {
         try {
             // Monta a URL da API
@@ -41,8 +38,11 @@ public class Traducao {
     public static void main(String[] args) {
         Traducao traducao = new Traducao();
 
-        // Exemplo de uso
-        String textoTraduzido = traducao.obterTraducao("Hi");
+        Scanner leitura = new Scanner(System.in);
+        System.out.println("Digite o texto a ser traduzido: ");
+        String texto = URLEncoder.encode(leitura.nextLine());
+        leitura.close();
+        String textoTraduzido = traducao.obterTraducao(texto);
 
         System.out.println("Texto traduzido: " + textoTraduzido);
     }
